@@ -1,25 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Header from './components/Header/Header';
+import LogoIcon from './components/LogoIcon/LogoIcon';
+import LogoText from './components/LogoText/LogoText';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
-const qwitcherReg = localFont({
-  src: './fonts/QwitcherGrypen-Regular.ttf',
-  variable: '--font-qwitcher-reg',
-});
-const qwitcherBold = localFont({
-  src: './fonts/QwitcherGrypen-Bold.ttf',
-  variable: '--font-qwitcher-bold',
-});
 const quicksand = localFont({
   src: './fonts/Quicksand-VariableFont_wght.ttf',
   variable: '--font-quicksand',
@@ -37,7 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.variable} antialiased`}>{children}</body>
+      <body className={`${quicksand.variable} antialiased defaults`}>
+        <Header>
+          <LogoIcon />
+          <LogoText />
+        </Header>
+        {children}
+      </body>
     </html>
   );
 }
