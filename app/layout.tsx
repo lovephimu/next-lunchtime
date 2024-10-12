@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Link from 'next/link';
+import Button from './components/Button';
 import Container from './components/Container';
 import Header from './components/Header/Header';
 import LogoIcon from './components/LogoIcon/LogoIcon';
@@ -27,11 +29,15 @@ export default function RootLayout({
       <body className={`${quicksand.variable} antialiased defaults`}>
         <Header>
           <Container between="right">
-            <div>Login/Logout</div>
+            <Button as="link" label={<div>Login/Logout</div>} href="/login" />
           </Container>
-          <Container direction="column">
-            <LogoIcon />
-            <LogoText />
+          <Container>
+            <Link href="/">
+              <Container direction="column">
+                <LogoIcon />
+                <LogoText />
+              </Container>
+            </Link>
           </Container>
         </Header>
         {children}
