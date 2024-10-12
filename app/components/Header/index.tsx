@@ -1,5 +1,5 @@
 import { HTMLProps, PropsWithChildren } from 'react';
-import LogoText from '../LogoText/LogoText';
+import LogoText from '../LogoText';
 import styles from './styles.module.css';
 
 type Props = HTMLProps<HTMLDivElement> &

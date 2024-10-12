@@ -6,7 +6,7 @@ import Button from './components/Button';
 import Container from './components/Container';
 import Header from './components/Header/Header';
 import LogoIcon from './components/LogoIcon/LogoIcon';
-import LogoText from './components/LogoText/LogoText';
+import LogoText from './components/LogoText';
 
 const quicksand = localFont({
   src: './fonts/Quicksand-VariableFont_wght.ttf',
