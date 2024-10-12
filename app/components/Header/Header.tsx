@@ -8,7 +8,11 @@ type Props = HTMLProps<HTMLDivElement> &
   };
 
 const Header = ({ className, children, ...htmlProps }: Props) => {
-  return <header className={styles.container}>{children}</header>;
+  return (
+    <header className={styles.container} {...htmlProps}>
+      {children}
+    </header>
+  );
 };
 
 export default Header;

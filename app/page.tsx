@@ -1,11 +1,10 @@
 import Image from 'next/image';
+import Page from './components/Page';
 
 export default function Home() {
   return (
-    <main>
-      <div className="font-[family-name:var(--font-quicksand)] text-2xl">
-        texttext blablabla
-      </div>
-    </main>
+    <Page>
+      <div>texttext blablabla</div>
+    </Page>
   );
 }
