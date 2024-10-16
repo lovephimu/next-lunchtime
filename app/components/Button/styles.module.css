@@ -5,3 +5,6 @@
   padding: 0 6px;
   border: 1px solid;
 }
+.disabled {
+  cursor: default;
+}

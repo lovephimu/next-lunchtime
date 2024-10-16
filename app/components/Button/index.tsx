@@ -22,6 +22,7 @@ const Button = ({
   href,
   label,
   variant = 'text',
+  disabled,
   children,
   className,
   ...htmlProps
@@ -31,8 +32,10 @@ const Button = ({
     <Element
       className={cx(styles.container, className, 'm-2 text-sm', {
         [styles.border]: variant === 'text',
+        [styles.disabled]: disabled,
       })}
       {...(as === 'link' ? { href } : {})}
+      disabled={disabled}
       {...htmlProps}
     >
       {label ? label : children}

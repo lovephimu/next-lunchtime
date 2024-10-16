@@ -51,9 +51,9 @@ const MiniForm = () => {
         }}
       >
         {visibility ? (
-          <Icon name="lockOpen" alt="Close login" />
+          <Icon name="xmark" alt="Close login" />
         ) : (
-          <Icon name="lock" alt="Login" />
+          <Icon name="key" alt="Login" />
         )}
       </Button>
     </Container>
