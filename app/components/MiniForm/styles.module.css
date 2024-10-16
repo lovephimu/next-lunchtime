@@ -1,0 +1,28 @@
+.content {
+  display: flex;
+}
+
+.hidden {
+  opacity: 0;
+
+  transform: translateY(10px);
+  transition: opacity 0.35s ease-in, transform 0.35s ease-in;
+}
+
+.animate {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.delay0 {
+  transition-delay: 0s;
+}
+
+.delay1 {
+  transition-delay: 0.2s;
+}
+
+.delay2 {
+  transition-delay: 0.4s;
+}

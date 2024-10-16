@@ -6,6 +6,7 @@
 .row {
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .column {
@@ -19,4 +20,16 @@
 
 .space-between-right:has(:only-child) {
   margin-left: auto;
+}
+
+.gap-sm {
+  gap: 0.5rem;
+}
+
+.gap-md {
+  gap: 1rem;
+}
+
+.gap-lg {
+  gap: 2rem;
 }

@@ -8,7 +8,7 @@ type Props = HTMLProps<HTMLDivElement> & {
 
 const LogoText = ({ className }: Props) => {
   return (
-    <div className={cx(styles.container, className, 'text-xl font-semibold')}>
+    <div className={cx(styles.container, className, 'text-2xl font-semibold')}>
       LunchTime
     </div>
   );

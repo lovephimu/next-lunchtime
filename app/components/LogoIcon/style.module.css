@@ -5,13 +5,14 @@
   position: relative;
   height: 100px;
   width: 100px;
+  margin-top: 1rem;
 }
 
 .transition {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: radial-gradient(circle, #b5d6e6 30%, #000 100%);
+  background: radial-gradient(circle, #9e004500 30%, #6f0b37 70%, #6f0b37 100%);
   transition: background 0.5s ease-in-out;
 }
 
@@ -20,5 +21,5 @@
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  background-color: #b5d6e6;
+  background-color: #00000000;
 }

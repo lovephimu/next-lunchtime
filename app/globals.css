@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #b5d6e6;
-  --foreground: #000000;
+  --background: #efa395;
+  --foreground: #000;
 
   --font-quicksand: 'Quicksand', sans-serif;
+  --font-bodoni-moda: 'Bodoni Moda', serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #b5d6e6;
-    --foreground: #000000;
+    --background: #b4d091;
+    --foreground: #9e0044;
   }
 }
 
@@ -24,7 +25,7 @@ body {
 
 .defaults {
   font-family: var(--font-quicksand);
-  font-weight: 200;
+  font-weight: 400;
 }
 
 @layer utilities {
