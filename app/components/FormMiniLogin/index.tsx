@@ -1,6 +1,9 @@
 'use client';
 
+import { LoginResponseBodyPost } from '@/app/api/(auth)/login/route';
 import cx from 'classnames';
+import { Route } from 'next';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Button from '../Button';
 import Container from '../Container';
@@ -16,12 +19,34 @@ enum InputField {
 const FormMiniLogin = () => {
   const [visibility, setVisibility] = useState(false);
   const [input, setInput] = useState({});
+  const [error, setError] = useState('');
+  const router = useRouter();
+
+  async function login() {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify(input),
+    });
+    const data: LoginResponseBodyPost = await response.json();
+
+    console.log(data);
+
+    if ('error' in data) {
+      setError(data.error);
+      console.log(data.error);
+      return;
+    }
+
+    router.push('/enter' as Route);
+
+    router.refresh();
+  }
 
   const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    const field = e.target.name as InputField;
+    const field = e.currentTarget.name as InputField;
     setInput((prevInput) => ({
       ...prevInput,
-      [field]: e.target.value,
+      [field]: e.currentTarget.value,
     }));
   };
 
