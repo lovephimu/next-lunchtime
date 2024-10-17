@@ -1,7 +1,7 @@
+import { UserWithPasswordHash } from '@/database/users';
 import { Sql } from 'postgres';
-import { User } from '../database/database';
 
-export const users: User[] = [
+export const users: UserWithPasswordHash[] = [
   {
     id: 1,
     username: 'lunchtimer',

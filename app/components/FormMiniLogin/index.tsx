@@ -8,8 +8,22 @@ import Icon from '../Icon';
 import Input from '../Input';
 import styles from './styles.module.css';
 
-const MiniForm = () => {
+enum InputField {
+  username = 'username',
+  password = 'password',
+}
+
+const FormMiniLogin = () => {
   const [visibility, setVisibility] = useState(false);
+  const [input, setInput] = useState({});
+
+  const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const field = e.target.name as InputField;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [field]: e.target.value,
+    }));
+  };
 
   const delays = visibility
     ? [styles.delay2, styles.delay1, styles.delay0]
@@ -17,21 +31,28 @@ const MiniForm = () => {
 
   return (
     <Container between="right">
-      <form className={styles.content} action="">
+      <form
+        className={styles.content}
+        onSubmit={(event) => event.preventDefault()}
+      >
         <Input
+          name="username"
           className={cx(styles.hidden, delays[0], {
             [styles.animate]: visibility,
           })}
           label="Username"
           disabled={!visibility}
+          onChange={handleInput}
         />
         <Input
+          name="password"
           className={cx(styles.hidden, delays[1], {
             [styles.animate]: visibility,
           })}
           label="Password"
           type="password"
           disabled={!visibility}
+          onChange={handleInput}
         />
         <Button
           className={cx(styles.hidden, delays[2], {
@@ -60,4 +81,4 @@ const MiniForm = () => {
   );
 };
 
-export default MiniForm;
+export default FormMiniLogin;
