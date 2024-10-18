@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #efa395;
-  --foreground: #000;
+  --background: #f6f5d0;
+  --foreground: #185a3c;
+
+  --secondary-color: #9e0044;
 
   --font-quicksand: 'Quicksand', sans-serif;
   --font-bodoni-moda: 'Bodoni Moda', serif;
@@ -12,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #b4d091;
-    --foreground: #9e0044;
+    --background: #f6f5d0;
+    --foreground: #185a3c;
   }
 }
 

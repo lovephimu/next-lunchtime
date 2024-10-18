@@ -1,7 +1,8 @@
 import crypto from 'node:crypto';
-import { createSession } from '@/database/sessions';
+import { createSession, deleteSessionByToken } from '@/database/sessions';
 import { getUserWithPasswordHashByUsername, User } from '@/database/users';
 import { secureCookieOptions } from '@/util/cookies';
+import getSession from '@/util/getSession';
 import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
@@ -17,11 +18,24 @@ export type LoginResponseBodyPost =
     }
   | Error;
 
+export type LogoutResponseBodyPost =
+  | {
+      tokenInfo: {
+        id: number;
+        token: string;
+      };
+    }
+  | Error;
+
 // test schema for user input
 
 const userSchema = z.object({
   username: z.string().min(1),
   password: z.string().min(1),
+});
+
+const tokenSchema = z.object({
+  token: z.string().min(1),
 });
 
 export async function POST(
@@ -107,6 +121,49 @@ export async function POST(
       user: {
         username: userWithPasswordHash.username,
         id: userWithPasswordHash.id,
+      },
+    },
+    {
+      status: 200,
+    },
+  );
+}
+
+export async function DELETE(): Promise<NextResponse<LogoutResponseBodyPost>> {
+  // 1. get user token
+
+  const token = await getSession();
+
+  // 2. check token
+
+  const inputTested = tokenSchema.safeParse(token);
+
+  // 2. verify that username and password are not missing else throw error
+
+  if (!inputTested.success) {
+    return NextResponse.json(
+      {
+        error: 'token invalid',
+      },
+      {
+        status: 400,
+      },
+    );
+  }
+
+  // 3. delete user token
+
+  const deletedToken = await deleteSessionByToken(inputTested.data.token);
+
+  // 4. Delete cookie
+
+  cookies().delete('sessionToken');
+
+  return NextResponse.json(
+    {
+      tokenInfo: {
+        id: deletedToken.id,
+        token: deletedToken.token,
       },
     },
     {

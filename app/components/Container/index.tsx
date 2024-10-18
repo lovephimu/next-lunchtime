@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 type Props = HTMLProps<HTMLDivElement> &
   PropsWithChildren & {
     direction?: 'row' | 'column';
+    justify?: 'left' | 'center' | 'right';
     between?: 'left' | 'right';
     gap?: 'small' | 'medium' | 'large';
   };
@@ -18,6 +19,7 @@ enum Gap {
 const Container = ({
   direction = 'row',
   gap = 'small',
+  justify = 'right',
   between,
   children,
   className,
@@ -26,7 +28,7 @@ const Container = ({
   return (
     <div
       className={cx(
-        styles.container,
+        styles.flex,
         styles[direction],
         styles[Gap[gap]],
         { [styles['space-between-right']]: between === 'right' },

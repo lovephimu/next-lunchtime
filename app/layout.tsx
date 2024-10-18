@@ -2,12 +2,11 @@ import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Link from 'next/link';
-import Button from './components/Button';
 import Container from './components/Container';
-import FormMiniLogin from './components/FormMiniLogin';
 import Header from './components/Header';
 import LogoIcon from './components/LogoIcon/LogoIcon';
 import LogoText from './components/LogoText';
+import Menu from './components/Menu';
 
 const quicksand = localFont({
   src: './fonts/Quicksand-VariableFont_wght.ttf',
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   description: 'Tracking meals',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -37,7 +36,7 @@ export default function RootLayout({
         className={`${bodoniModa.variable} ${quicksand.variable} antialiased defaults`}
       >
         <Header>
-          <FormMiniLogin />
+          <Menu />
           <Container>
             <Link href="/">
               <Container direction="column" gap="large">

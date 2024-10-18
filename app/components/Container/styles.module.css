@@ -1,4 +1,4 @@
-.container {
+.flex {
   display: flex;
   gap: 0.5rem;
 }
@@ -32,4 +32,16 @@
 
 .gap-lg {
   gap: 2rem;
+}
+
+.justify-left {
+  justify-content: left;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-right {
+  justify-content: right;
 }
