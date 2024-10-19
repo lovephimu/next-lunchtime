@@ -1,15 +1,17 @@
+import { Meal } from '@/database/meals';
 import { Sql } from 'postgres';
-import { Meal } from '../database/database';
 
 export const meals: Meal[] = [
   {
     id: 1,
     mealname: 'Chili con Carne',
+    info: null,
     diet: null,
   },
   {
     id: 2,
     mealname: 'Chili sin Carne',
+    info: 'done with Soy',
     diet: 'vegan',
   },
 ];
@@ -18,9 +20,9 @@ export async function up(sql: Sql) {
   for (const meal of meals) {
     await sql`
       INSERT INTO meals
-      (mealname, diet)
+      (mealname, info, diet)
       VALUES
-      (${meal.mealname}, ${meal.diet})
+      (${meal.mealname}, ${meal.info}, ${meal.diet})
     `;
   }
 }

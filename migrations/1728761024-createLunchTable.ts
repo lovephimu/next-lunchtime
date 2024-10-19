@@ -7,8 +7,8 @@ export async function up(sql: Sql) {
     CREATE TABLE lunches (
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
       main_id integer NOT NULL,
-      dessert_id integer NOT NULL,
-      side_id integer NOT NULL,
+      dessert_id integer NULL,
+      side_id integer NULL,
       FOREIGN KEY (main_id) REFERENCES meals (id) ON DELETE SET NULL,
       FOREIGN KEY (side_id) REFERENCES meals (id) ON DELETE SET NULL,
       FOREIGN KEY (dessert_id) REFERENCES meals (id) ON DELETE SET NULL,

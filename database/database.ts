@@ -7,20 +7,6 @@ export type User = {
   passwordHash: string;
 };
 
-export type Meal = {
-  id: number;
-  mealname: string;
-  diet: 'vegan' | 'vegetarian' | null;
-};
-
-export type Lunch = {
-  id: number;
-  mainId: number;
-  sideId: number;
-  dessertId: number;
-  timeStamp: string | null;
-};
-
 // chat types
 
 export type Message = {

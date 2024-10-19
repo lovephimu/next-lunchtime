@@ -1,4 +1,4 @@
-import { Lunch } from '@/database/database';
+import { Lunch } from '@/database/lunches';
 import { Sql } from 'postgres';
 
 const lunches: Lunch[] = [
