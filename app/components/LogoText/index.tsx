@@ -1,5 +1,7 @@
 import cx from 'classnames';
 import { HTMLProps } from 'react';
+import Container from '../Container';
+import Icon from '../Icon';
 import styles from './styles.module.css';
 
 type Props = HTMLProps<HTMLDivElement> & {
@@ -8,9 +10,14 @@ type Props = HTMLProps<HTMLDivElement> & {
 
 const LogoText = ({ className }: Props) => {
   return (
-    <div className={cx(styles.container, className, 'text-2xl font-semibold')}>
-      LunchTime
-    </div>
+    <Container>
+      <Icon aria-hidden size="medium" name="logo" />
+      <div
+        className={cx(styles.container, className, 'text-2xl font-semibold')}
+      >
+        LunchTime
+      </div>
+    </Container>
   );
 };
 

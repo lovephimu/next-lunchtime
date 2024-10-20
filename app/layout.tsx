@@ -7,6 +7,7 @@ import Header from './components/Header';
 import LogoIcon from './components/LogoIcon/LogoIcon';
 import LogoText from './components/LogoText';
 import Menu from './components/Menu';
+import Page from './components/Page';
 
 const quicksand = localFont({
   src: './fonts/Quicksand-VariableFont_wght.ttf',
@@ -37,16 +38,8 @@ export default async function RootLayout({
       >
         <Header>
           <Menu />
-          <Container>
-            <Link href="/">
-              <Container direction="column" gap="large">
-                <LogoIcon />
-                <LogoText />
-              </Container>
-            </Link>
-          </Container>
         </Header>
-        {children}
+        <Page>{children}</Page>
       </body>
     </html>
   );
